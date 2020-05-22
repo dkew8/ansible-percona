@@ -1,11 +1,7 @@
 FROM ubuntu:focal
 
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y software-properties-common systemd && rm -rf /var/lib/apt/lists/*
-
-RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && apt-get install -y \
-    git \
-    ansible \
- && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y software-properties-common systemd python3-pip && rm -rf /var/lib/apt/lists/* \
+    && pip3 install ansible git -y
 
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 
