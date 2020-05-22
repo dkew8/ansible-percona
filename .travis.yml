@@ -10,6 +10,30 @@ notifications:
 sudo: required
 
 env:
+  # Debian 9 + Percona Server 5.6
+  - distribution: debian
+    version: stretch
+    ansible_extra_vars: ""
+  # Debian 9 + Percona Server 5.7
+  - distribution: debian
+    version: stretch
+    ansible_extra_vars: "'mysql_version_major=5 mysql_version_minor=7'"
+  # Debian 9 + Percona Server 8.0
+  - distribution: debian
+    version: stretch
+    ansible_extra_vars: "'mysql_version_major=8 mysql_version_minor=0'"
+  # Debian 10 + Percona Server 5.6
+  - distribution: debian
+    version: buster
+    ansible_extra_vars: ""
+  # Debian 10 + Percona Server 5.7
+  - distribution: debian
+    version: buster
+    ansible_extra_vars: "'mysql_version_major=5 mysql_version_minor=7'"
+  # Debian 10 + Percona Server 8.0
+  - distribution: debian
+    version: buster
+    ansible_extra_vars: "'mysql_version_major=8 mysql_version_minor=0'"
   # Trusty + Percona Server 5.6
   - distribution: ubuntu
     version: trusty
